@@ -36,6 +36,12 @@ def index() -> rx.Component:
 
 
 app = rx.App(
+    head_components=[
+        rx.el.meta(
+            name="viewport",
+            content="width=device-width, shrink-to-fit=no, initial-scale=1",
+        ),
+    ],
     stylesheets=styles.BASE,
     style=styles.base_style,
 )

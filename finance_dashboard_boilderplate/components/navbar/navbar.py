@@ -11,7 +11,8 @@ def navbar() -> rx.Component:
             rx.spacer(),
             rx.hstack(
                 notifications_dropdown(),
-                rx.color_mode.button(style={"opacity": "0.8", "scale": "0.95"}),
+                rx.color_mode.button(variant="soft",
+                                     style={"opacity": "0.8", "scale": "0.95"}),
                 user_dropdown(),
                 spacing="4",
             ),

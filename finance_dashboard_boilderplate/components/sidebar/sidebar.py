@@ -1,35 +1,7 @@
 import reflex as rx
 from .state import State
 from ...routes import get_sidebar_routes, is_route_active
-
-def sidebar_item(route) -> rx.Component:
-    """Create a sidebar navigation item."""
-    return rx.link(
-        rx.flex(
-            rx.icon(
-                route.icon,
-                color="var(--muted-foreground)" if not is_route_active(route.path, rx.State.router.page.path) else "var(--primary)",
-                font_size="1.2em",
-            ),
-            rx.text(
-                route.title, 
-                margin_left="3", 
-                display=["none", "none", "block"] if not State.is_collapsed else "none"
-            ),
-            align_items="center",
-            padding="2",
-            border_radius="md",
-            background="var(--accent)" if is_route_active(route.path, rx.State.router.page.path) else "transparent",
-            color="var(--primary)" if is_route_active(route.path, rx.State.router.page.path) else "var(--muted-foreground)",
-            _hover={
-                "background": "var(--accent)",
-                "color": "var(--primary)",
-            },
-        ),
-        href=route.path,
-        width="100%",
-        text_decoration="none",
-    )
+from .sidebar_item import sidebar_item
 
 def sidebar() -> rx.Component:
     """Create the sidebar component."""
